@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: encoders
+Version: 0.0.4
+Summary: Faster than scikit encoders
+Home-page: https://github.com/Dobatymo/encoders
+Author: Dobatymo
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8
+Provides-Extra: bench
+Requires-Dist: genutility ; extra == 'bench'
+Requires-Dist: numpy ; extra == 'bench'
+Requires-Dist: pandas ; extra == 'bench'
+Requires-Dist: scikit-learn ; extra == 'bench'
+Provides-Extra: test
+Requires-Dist: numpy ; extra == 'test'
+
+# encoders
+
+- fast LabelEncoder for str and bytes to int
+
+## Install
+
+`pip install encoders`
+
+## Dev
+
+- `py -m pip install -r requirements-dev.txt`
+- use `py -m pre_commit run --all-files` to run pre-commit checks manually
+- `py test.py` to run tests, `py bench.py` to run benchmarks
+
+## Plans
+
+- fast Counter, MultiCounter for str and bytes

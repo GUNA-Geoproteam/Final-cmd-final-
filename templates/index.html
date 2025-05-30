@@ -1,0 +1,191 @@
+{% extends "base2.html" %}
+{% block title %}Dashboard - Nextus{% endblock %}
+{% block content %}
+
+<form id="upload-form" enctype="multipart/form-data">
+  <label for="file">Upload Excel File:</label>
+  <input type="file" id="file" name="file" required />
+  <label for="destination_folder">Destination Folder Path:</label>
+  <input type="text" id="destination_folder" name="destination_folder" placeholder="e.g., ./output" required />
+  <button type="button" onclick="submitForm()">Submit</button>
+</form>
+
+
+<div id="progress-container">
+  <label for="progress-bar">Processing Progress:</label>
+  <progress id="progress-bar" value="0" max="100"></progress>
+  <p id="progress-value">Progress: 0%</p>
+</div>
+
+<div id="response">
+  <h3>
+    Processing Result: <span id="response-message"></span>
+  </h3>
+  <table id="response-summary">
+    <thead>
+      <tr>
+        <th>Total Runs</th>
+        <th>Success Count</th>
+        <th>Failure Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="total-runs"></td>
+        <td id="success-count"></td>
+        <td id="failure-count"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="scheduled-reports-modal" class="modal">
+  <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+    <h2>Set Up Scheduled Reports</h2>
+
+    <form id="schedule-form">
+      <label for="report-select">Select Reports:</label>
+      <select id="report-select" name="reports" multiple required>
+        <option value="">Loading...</option>
+      </select>
+
+      <fieldset>
+        <legend>Frequency:</legend>
+        <label><input type="radio" name="frequency" value="daily" required /> Daily</label>
+        <label><input type="radio" name="frequency" value="weekly" required /> Weekly</label>
+        <label><input type="radio" name="frequency" value="fortnightly" required /> Fortnightly</label>
+        <label><input type="radio" name="frequency" value="monthly" required /> Monthly</label>
+        <label><input type="radio" name="frequency" value="custom" required /> Custom Days</label>
+      </fieldset>
+
+      <fieldset id="day-input-field" style="display: none;">
+        <legend>Specify Days:</legend>
+        <label for="custom-days">Enter days (comma-separated for multiple):</label>
+        <input type="text" id="custom-days" name="custom_days" placeholder="e.g., 1, 15" />
+      </fieldset>
+
+      <fieldset id="weekly-options" style="display: none;">
+        <legend>Select Day of the Week:</legend>
+        <label><input type="radio" name="day" value="sunday" /> Sunday</label>
+        <label><input type="radio" name="day" value="monday" /> Monday</label>
+        <label><input type="radio" name="day" value="tuesday" /> Tuesday</label>
+        <label><input type="radio" name="day" value="wednesday" /> Wednesday</label>
+        <label><input type="radio" name="day" value="thursday" /> Thursday</label>
+        <label><input type="radio" name="day" value="friday" /> Friday</label>
+        <label><input type="radio" name="day" value="saturday" /> Saturday</label>
+      </fieldset>
+
+       <!-- Updated Report Type Fieldset -->
+      <fieldset>
+        <legend>Report Type:</legend>
+        <label>
+          <input type="radio" name="report_type" value="single" required /> Single
+        </label>
+        <label>
+          <input type="radio" name="report_type" value="bulk" /> Bulk
+        </label>
+      </fieldset>
+
+      <label for="file-path">Report to be saved in (file path):</label>
+      <input type="text" id="file-path" name="file_path" placeholder="e.g., /user/documents/reports/" required />
+
+      <label for="recipients-email">Recipients Email:</label>
+      <input type="text" id="recipients-email" name="recipients_email" placeholder="e.g., example1@gmail.com, example2@gmail.com" required />
+
+      <div class="btn-container">
+        <button type="submit" class="btn-submit">Submit</button>
+        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Add this inside your existing HTML -->
+<div id="scheduled-reports-section" style="display: none;">
+  <h2>Scheduled Reports</h2>
+  <table id="scheduled-reports-table" class="styled-table">
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Report Name</th>
+        <th>Frequency</th>
+        <th>Day</th>
+        <th>Custom Days</th>
+        <th>File Path</th>
+        <th>Recipients Email</th>
+        <th>Report Type</th>
+        <th>Actions</th>  <!-- Ensure this is a separate column -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for report in scheduled_reports %}
+      <tr>
+        <td>{{ report.customer_name }}</td>
+        <td>{{ report.report_name }}</td>
+        <td>{{ report.frequency }}</td>
+        <td>{{ report.day }}</td>
+        <td>{{ report.custom_days }}</td>
+        <td>{{ report.file_path }}</td>
+        <td>{{ report.recipients_email }}</td>
+        <td>{{ report.report_type }}</td>
+        <td>
+          <button onclick="editReport('{{ report.id }}')">Edit</button>
+          <button onclick="deleteReport('{{ report.id }}')">Delete</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button onclick="closeReportsSection()">Close</button>
+</div>
+
+{% endblock %}
+<script>
+  // make sure this runs after the DOM is ready
+  document
+    .getElementById('schedule-form')
+    .addEventListener('submit', async function(e) {
+      e.preventDefault(); 
+
+      // 1) grab your other fields…
+      const selectedReports = Array.from(
+        document.querySelectorAll('#report-select option:checked')
+      ).map(o => o.value);
+      const frequency    = document.querySelector('input[name="frequency"]:checked').value;
+      const day          = document.querySelector('input[name="day"]:checked')?.value || null;
+      const customDays   = document.getElementById('custom-days').value;
+      const filePath     = document.getElementById('file-path').value;
+      const recipients   = document.getElementById('recipients-email').value;
+      const dateFilter   = /* however you grab this from your UI */ '';
+
+      // 2) grab the new report_type radio
+      const reportType = document.querySelector('input[name="report_type"]:checked').value;
+
+      // 3) build the payload
+      const payload = {
+        reports:         selectedReports,
+        report_type:     reportType,
+        frequency,
+        day,
+        custom_days:     customDays,
+        file_path:       filePath,
+        recipients_email:recipients,
+        date_filter:     dateFilter
+      };
+
+      // 4) POST to your Flask endpoint
+      const resp = await fetch('/schedule-report', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const body = await resp.json();
+      if (resp.ok) {
+        alert('Scheduled successfully!');
+        closeModal();
+        loadScheduledReports();  // refresh your table
+      } else {
+        alert('Error: ' + body.error);
+      }
+    });
+</script>

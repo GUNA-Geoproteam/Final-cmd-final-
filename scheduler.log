@@ -1,0 +1,73 @@
+2025-01-28 09:28:00,808 Processing job for Balanced Recovery Center - Patient_journey2
+2025-01-28 09:28:00,808 Job processed successfully for Balanced Recovery Center - Patient_journey2
+2025-01-28 09:28:00,808 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:28:00,808 Job processed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:28:00,808 Processing job for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:28:00,808 Job processed successfully for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:28:00,809 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:28:00,809 Job processed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:35:00,157 Processing job for Balanced Recovery Center - Patient_journey2
+2025-01-28 09:35:00,158 Job processed successfully for Balanced Recovery Center - Patient_journey2
+2025-01-28 09:35:00,158 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:35:00,158 Job processed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:35:00,158 Processing job for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:35:00,159 Job processed successfully for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:35:00,159 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:35:00,159 Job processed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:40:00,564 Processing job for Balanced Recovery Center - Patient_journey2
+2025-01-28 09:40:00,564 Job processed successfully for Balanced Recovery Center - Patient_journey2
+2025-01-28 09:40:00,564 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:40:00,564 Job processed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:40:00,564 Processing job for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:40:00,564 Job processed successfully for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:40:00,564 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:40:00,564 Job processed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:43:00,635 Processing job for Balanced Recovery Center - Patient_journey2
+2025-01-28 09:43:00,635 Job processed successfully for Balanced Recovery Center - Patient_journey2
+2025-01-28 09:43:00,635 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:43:00,635 Job processed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:43:00,635 Processing job for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:43:00,635 Job processed successfully for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:43:00,635 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:43:00,635 Job processed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:50:00,091 Processing job for California Wellness Center - Nextus Payment Weekly summary
+2025-01-28 09:50:00,096 Error processing job for California Wellness Center - Nextus Payment Weekly summary: [Errno 13] Permission denied: 'C:\\Users\\KumarNulu\\Documents\\test'
+2025-01-28 09:50:00,096 Processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary
+2025-01-28 09:50:00,099 Error processing job for All In Solutions Boynton Beach - Nextus Payment Weekly summary: [Errno 13] Permission denied: 'C:\\Users\\KumarNulu\\Documents\\test'
+2025-01-28 09:59:53,241 Processing job for Test Name - Test Report
+2025-01-28 09:59:53,242 Error processing job for Test Name - Test Report: [Errno 2] No such file or directory: 'test_path'
+2025-01-28 10:43:00,887 Running process_job for Balanced Recovery Center, Report=Patient_journey2, Excel=data/Customer_Report_Filter.xlsx, Output=C:\Users\KumarNulu\Documents\test
+2025-01-28 10:43:36,102 Job completed successfully for Balanced Recovery Center - Patient_journey2. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 10:43:36,102 Running process_job for All In Solutions Boynton Beach, Report=Nextus Payment Weekly summary, Excel=data/Customer_Report_Filter.xlsx, Output=C:\Users\KumarNulu\Documents\test
+2025-01-28 10:44:11,044 Job completed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 10:44:11,044 Running process_job for California Wellness Center, Report=Nextus Payment Weekly summary, Excel=data/Customer_Report_Filter.xlsx, Output=C:\Users\KumarNulu\Documents\test
+2025-01-28 10:44:45,363 Job completed successfully for California Wellness Center - Nextus Payment Weekly summary. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 10:44:45,364 Running process_job for All In Solutions Boynton Beach, Report=Nextus Payment Weekly summary, Excel=data/Customer_Report_Filter.xlsx, Output=C:\Users\KumarNulu\Documents\test
+2025-01-28 10:45:20,316 Job completed successfully for All In Solutions Boynton Beach - Nextus Payment Weekly summary. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:12:00,867 ==== Starting daily batch at 2025-01-28 11:12:00.867701 ====
+2025-01-28 11:12:00,903 Created data/Customer_Report_Filter.xlsx for today's due jobs, total 4 rows
+2025-01-28 11:13:23,148 Completed daily batch. Summary: {'total_runs': 4, 'success_count': 4, 'failure_count': 0}
+2025-01-28 11:21:00,303 ==== Starting daily batch at 2025-01-28 11:21:00.303195 ====
+2025-01-28 11:21:00,332 Processing 10030751 => Output folder: C:\Users\KumarNulu\Documents\test
+2025-01-28 11:21:04,593 Row done. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:21:04,612 Processing 10022696 => Output folder: C:\Users\KumarNulu\Documents\test
+2025-01-28 11:21:43,432 Row done. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:21:43,441 Processing 10029124 => Output folder: C:\Users\KumarNulu\Documents\test
+2025-01-28 11:21:49,219 Row done. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:21:49,229 Processing 10022696 => Output folder: C:\Users\KumarNulu\Documents\test
+2025-01-28 11:22:25,089 Row done. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:22:25,089 All due rows processed.
+2025-01-28 11:30:00,350 ==== Starting daily batch at 2025-01-28 11:30:00.350790 ====
+2025-01-28 11:30:00,387 Processing 10030751 => Output folder: C:\Users\KumarNulu\Documents\test
+2025-01-28 11:30:04,291 Row done. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:30:04,308 Processing 10022696 => Output folder: C:\Users\KumarNulu\Documents\test
+2025-01-28 11:30:41,273 Row done. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:30:41,282 Processing 10029124 => Output folder: C:\Users\KumarNulu\Documents\test
+2025-01-28 11:31:16,785 Row done. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:31:16,795 Processing 10022696 => Output folder: C:\Users\KumarNulu\Documents\test
+2025-01-28 11:31:51,393 Row done. Summary: {'total_runs': 1, 'success_count': 1, 'failure_count': 0}
+2025-01-28 11:31:51,393 All due rows processed.Exiting now.
+2025-04-23 08:37:00,823 ==== Starting daily batch at 2025-04-23 08:37:00.823184 ====
+2025-04-23 08:37:01,337 \U0001f4dd Report: PENDING RAM REPORT, Type: bulk, Identifier: 10064076, Filter: 10137003
+2025-04-23 08:37:01,352 \u274c Bulk report processing failed for PENDING RAM REPORT: name 'read_table_from_sql' is not defined
+2025-04-23 08:37:01,352 All due rows processed.Exiting now.

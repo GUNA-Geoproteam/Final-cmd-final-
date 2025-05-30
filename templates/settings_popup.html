@@ -1,0 +1,87 @@
+<div class="settings-container">
+  <img
+    src="{{ url_for('static', filename='images/settings-icon.png') }}"
+    alt="Settings"
+    class="settings-icon"
+    onclick="toggleSettingsPopup()"
+  />
+  <div id="settings-popup" class="settings-popup">
+    <ul class="popup-menu">
+      <li>
+        <a href="/download-template" download title="Download Excel Template" class="menu-item">
+          <span class="download-text">Download Template</span>
+          <img src="{{ url_for('static', filename='images/download-icon.png') }}" alt="Download" class="popup-download-icon" />
+        </a>
+      </li>
+      <li class="menu-item">
+        Scheduled Reports
+        <ul class="submenu">
+          <li><a href="#" class="menu-item" onclick="openModal()">Set Up Scheduled Reports</a></li>
+          <li id="view-scheduled-reports" class="menu-item">View Scheduled Reports</li>
+          <li id="download-scheduled-reports" class="menu-item">
+            <a href="/download-scheduled-reports" class="menu-item">Download Scheduled Reports</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/analytics" class="menu-item" target="_blank">
+          View Analytics Dashboard
+        </a>
+      </li>
+      <!-- <li> -->
+        <!-- <a href="/view-security" class="menu-item">User Management</a>  -->
+    <!-- </li> -->
+{# <li><a class="menu-item" href="{{ url_for('view_locmaster') }}">LOC Master</a></li> #}
+            <li>
+        <a href="#" class="menu-item" onclick="openAlignmentConfig()">Configure Alignment</a>
+      </li>
+      <li>
+        <a href="#" class="menu-item">User Guide</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- New Modal for Alignment Configuration -->
+<div id="alignment-config-modal" class="modal">
+  <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+    <h2>Configure Alignment</h2>
+    <label for="report-select-alignment">Select Report:</label>
+    <select id="report-select-alignment">
+      <option value="">Loading...</option>
+    </select>
+    <div id="alignment-table-container">
+      <!-- Alignment table will be rendered here -->
+    </div>
+    <button type="button" onclick="closeAlignmentModal()">Close</button>
+  </div>
+</div>
+
+<!-- Optional CSS if needed for debugging or styling -->
+<style>
+  .submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: white;
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px;
+  }
+  .submenu li {
+    white-space: nowrap;
+  }
+  .menu-item:hover .submenu {
+    display: block;
+  }
+  .menu-item {
+    position: relative;
+  }
+    /* Force alignment table text to black */
+  #alignment-table,
+  #alignment-table td,
+  #alignment-table th {
+    color: black;
+  }
+</style>
